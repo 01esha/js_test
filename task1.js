@@ -1,16 +1,38 @@
-var test = check_divis (parseInt (process.argv[2], 10), parseInt(process.argv[3], 10));
-process.stdout.write(test);
+function checkPalindrom(string){	
+	var newstr,	newarr,	strpal;
 
-function check_divis (num1, num2) {
-var result = true;
-if (num1 >= num2){
-if (num1%num2 != 0) result = true
-else result = false;
+	if(typeof string !== "number"){
+		newstr = string.toLowerCase();
+	}else{
+		newstr = string.toString();
+	}
+
+	newstr = newstr.replace(/[^A-Za-zА-Яа-яЁё]/g, '');
+	newarr = newstr.split('');
+	newarr.reverse();
+
+	strpal = newarr.join('').replace(/\s/g, '')
+	if(+strpal !== NaN){
+	  +strpal;
+	}
+	if(strpal === newstr){
+	  	return "YES";
+	}else{
+		return "NO";
+	}
 }
-else {
-if (num2%num1 != 0) result = true
-else result = false;
-}
-return result;
-}
+
+console.log(checkPalindrom (process.argv[2]));
+
+
+
+
+
+
+
+
+
+
+
+
 
